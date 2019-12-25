@@ -1,0 +1,38 @@
+{% include 'admin/header.html' %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6 text-center">Rezervasyonlar</h1>
+  </div>
+</div>
+<div class="container p-3 text-center">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Giriş Tarihi</th>
+        <th scope="col">Çıkış Tarihi</th>
+        <th scope="col">Kişi</th>
+        <th scope="col">Süre</th>
+        <th scope="col">Oda / Fiyatı</th>
+        <th scope="col">Müşteri</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in rezervasyonlar %}
+      <tr>
+        <th scope="row">{{r.id}}</th>
+        <td>{{r.giris}}</td>
+        <td>{{r.cikis}}</td>
+        <td>{{r.kisi}}</td>
+        <td>{{r.kacgun}}</td>
+        <td>{{r.oda}} / {{r.fiyat}} TL</td>
+        <td>{{r.musteri}}</td>
+        <td><a href="/admin/rezervasyon_sil/{{r.id}}">Sil</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+{% include 'admin/footer.html' %}

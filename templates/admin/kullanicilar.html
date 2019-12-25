@@ -1,0 +1,27 @@
+{% include 'admin/header.html' %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6 text-center">Kullanıcılar</h1>
+  </div>
+</div>
+<div class="container p-3 text-center">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Email</th>
+        <th scope="col">Adı Soyadı</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for kullanici in kullanicilar %}
+      <tr>
+        <th scope="row">{{kullanici.id}}</th>
+        <td>{{kullanici.email}}</td>
+        <td>{{kullanici.name}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include 'admin/footer.html' %}

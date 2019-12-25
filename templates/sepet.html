@@ -1,0 +1,29 @@
+{% include 'header.html' %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6 text-center">Sepet</h1>
+  </div>
+</div>
+<div class="container giris_kayit">
+	<div class="list-group">
+
+    {% for oda in sepetim %}
+			<a class="list-group-item list-group-item-action mb-3">
+				<form action="/sepet_sil" method="post">
+					<div class="d-flex w-100 justify-content-between">
+						<h5 class="mb-1">{{ sepetim[oda]['fiyat'] }} TL /Kişi başı <small>(Toplam {{sepetim[oda]['kisi']}} kişi {{ sepetim[oda]['toplam'] }} TL)</small></h5>
+						<small>{{ sepetim[oda]['kacgun'] }}</small>
+					</div>
+					<p class="mb-0">{{ sepetim[oda]['oda'] }}</p>
+          <medum>Giriş : {{ sepetim[oda]['giris'] }} ---> Çıkış : {{ sepetim[oda]['cikis'] }}</medum>
+          <input type="hidden" name="sepet_id" value="{{ oda }}">
+					<button type="submit" class="btn btn-danger btn-sm">Sepetten Çıkar</button>
+				</form>
+			</a>
+      {% endfor %}
+	</div>
+  {% if sepetim %}
+  <button type="button" class="btn btn-danger mt-3" onclick="window.location.href='/rezervasyon_kaydet'">Rezervasyonu Tamamla</button>
+  {% endif %}
+</div>
+{% include 'footer.html' %}

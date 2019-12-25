@@ -1,0 +1,76 @@
+{% include 'header.html' %}
+
+<div class="jumbotron jumbotron-fluid index">
+    <div class="container ucakbileti">
+        <div class="row align-items-center justify-content-center">
+
+					<div class="col-lg-6 mb-4">
+						<form class="mt-4" action="/odalar" method="post">
+						  <div class="form-group mb-3">
+						    <label for="input">Giriş Tarihi</label>
+								<input class="form-control datepicker" type="text" name="giris_tarih" value="{{bugun}}"  id="input" required>
+						  </div>
+						  <div class="form-group mb-3">
+						    <label for="input">Çıkış Tarihi</label>
+						    <input class="form-control datepicker" type="text" name="cikis_tarih" value="{{bugun}}" id="input" required>
+						  </div>
+						  <div class="form-group mb-3">
+						    <label for="select">Kişi Sayısı</label>
+                <select class="form-control" name="kisi" id="select">
+                  <option value="1">1 Kişi</option>
+                  <option value="2">2 Kişi</option>
+                  <option value="3">3 Kişi</option>
+                  <option value="4">4 Kişi</option>
+                  <option value="5">5 Kişi</option>
+                </select>
+						  </div>
+						  <div class="form-group mb-3">
+						    <button type="submit" class="btn btn-primary btn-block">Ara</button>
+						  </div>
+						</form>
+        	</div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container p-3 text-center">
+
+    <div class="row">
+        <div class="col-lg-3">
+
+            <h5>Sayısız Seçenek</h5>
+            <img src="/static/images/option.svg">
+            <p style="font-size: 15px;padding: 30px;">
+                Otelsekiz ile 1000’lerce oteli tercihlerinize göre filtreleyerek saniyeler içinde size en uygun oteli bulabilirsiniz.
+            </p>
+
+        </div>
+        <div class="col-lg-3">
+            <h5>En Uygun Otel</h5>
+            <img src="/static/images/location.svg">
+            <p style="font-size: 15px;padding: 30px;">
+                Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın.
+            </p>
+        </div>
+        <div class="col-lg-3">
+            <h5>Hızlı ve Kolay</h5>
+            <img src="/static/images/fast-easy.svg">
+            <p style="font-size: 15px;padding: 30px;">
+                Otelsekiz sayesinde aradığınız oteli bulmak için sadece birkaç saniyeye ihtiyacınız var.
+            </p>
+        </div>
+        <div class="col-lg-3">
+            <h5>Güvenle Alın</h5>
+
+            <img src="/static/images/trust.svg">
+            <p style="font-size: 15px;padding: 30px;">
+                Tüm ödeme işleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.
+            </p>
+        </div>
+
+
+    </div>
+
+</div>
+{% include 'footer.html' %}

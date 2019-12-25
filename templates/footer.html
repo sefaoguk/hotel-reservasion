@@ -1,0 +1,21 @@
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/static/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap-datepicker.min.js" charset="utf-8"></script>
+    <script src="/static/js/bootstrap-datepicker.tr.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.datepicker').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd',
+            startDate: "today",
+            todayHighlight: true,
+            language: 'tr'
+        });
+      });
+    </script>
+  </body>
+</html>

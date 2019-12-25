@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-datepicker3.min.css">
+    <title>Otel Sekiz</title>
+		<style media="screen">
+			.ucakbileti {
+				padding-top: 5px;
+				padding-bottom: 5px;
+			}
+      .ucakbileti .col-lg-6 {
+        padding: 4px 24px 12px 24px;
+        background-color: rgba(255, 255, 255, 0.75);
+        border-radius: 20px;
+      }
+      .giris_kayit {
+				padding-top: 50px;
+				padding-bottom: 30px;
+			}
+      .index {
+        background-image: url('/static/images/bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .giris_kayit button {
+        float: right;
+      }
+		</style>
+  </head>
+  <body class="bg-light">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+		  <div class="container">
+		    <a class="navbar-brand" href="/">
+          <strong class="text-white">OtelSekiz</strong>
+        </a>
+		    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+		          <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarResponsive">
+		      <ul class="navbar-nav ml-auto">
+		        <li class="nav-item active mr-2">
+		          <a class="nav-link" href="/">Anasayfa</a>
+		        </li>
+            {% if current_user.is_authenticated %}
+		        <li class="nav-item active mr-2">
+		          <a class="nav-link" href="/profil">Hesabım</a>
+		        </li>
+            <li class="nav-item active mr-2">
+		          <a class="nav-link" href="/sepet">Sepet</a>
+		        </li>
+            <li class="nav-item active mr-2">
+		          <a class="nav-link" href="/cikis">Çıkış Yap</a>
+		        </li>
+            <li class="nav-item active mr-2 ml-2"><a class="nav-link">|</a></li>
+            <li class="nav-item active mr-2">
+		          <a class="nav-link" href="/admin">Admin</a>
+		        </li>
+            {% else %}
+		        <li class="nav-item active mr-2">
+		          <a class="nav-link" href="/giris">Giriş Yap</a>
+		        </li>
+		        <li class="nav-item active mr-2">
+		          <a class="nav-link" href="/kayit">Kayıt Ol</a>
+		        </li>
+            {% endif %}
+		      </ul>
+		    </div>
+		  </div>
+		</nav>

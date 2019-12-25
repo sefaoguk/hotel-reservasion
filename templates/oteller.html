@@ -1,0 +1,32 @@
+{% include 'header.html' %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6 text-center">Odalar</h1>
+    <p class="lead text-center">Giriş : 2019-01-01  --->  Çıkış : 2019-01-02</p>
+  </div>
+</div>
+<div class="container giris_kayit">
+	<div class="list-group">
+    {% for oda in odalar %}
+			<a class="list-group-item list-group-item-action mb-3">
+				<form action="/sepete_ekle" method="post">
+					<div class="d-flex w-100 justify-content-between">
+						<h5 class="mb-1">{{ oda.fiyat}} TL /Kişi başı <small>(Toplam {{form.kisi}} kişi {{oda.fiyat|int * form.kisi|int}} TL)</small></h5>
+						<small>{{ kacgun }}</small>
+					</div>
+					<p class="mb-0">{{oda.baslik}}</p>
+          <medum>{{oda.aciklama}}</medum>
+          <input type="hidden" name="giris_tarih" value="{{form.giris}}">
+          <input type="hidden" name="cikis_tarih" value="{{form.cikis}}">
+          <input type="hidden" name="kisi_sayisi" value="{{form.kisi}}">
+          <input type="hidden" name="kacgun" value="{{kacgun}}">
+          <input type="hidden" name="oda" value="{{oda.baslik}}">
+          <input type="hidden" name="fiyat" value="{{oda.fiyat}}">
+          <input type="hidden" name="toplam_fiyat" value="{{oda.fiyat|int * form.kisi|int}}">
+					<button type="submit" class="btn btn-primary btn-sm">Sepete Ekle</button>
+				</form>
+			</a>
+    {% endfor %}
+	</div>
+</div>
+{% include 'footer.html' %}

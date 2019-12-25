@@ -1,0 +1,37 @@
+{% include 'header.html' %}
+{% if request.path != '/kayit' %}
+<meta http-equiv="refresh" content="0; URL=/kayit" />
+{% endif %}
+<div class="container giris_kayit">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				{% if request.args.get('h', '') == 'hata' %}
+				<div class="alert alert-danger">
+					Kayıt yapılırken hata meydana geldi..
+				</div>
+				{% endif %}
+				<form action="" method="post">
+          <div class="form-group mb-3">
+						<label for="mail">Adınız Soyadınız</label>
+						<input type="text" class="form-control" placeholder="Adınız Soyadınız" name="adsoyad" id="mail">
+					</div>
+					<div class="form-group mb-3">
+						<label for="mail">Email Adresi</label>
+						<input type="email" class="form-control" placeholder="Email Adresi" name="mail" id="mail">
+					</div>
+					<div class="form-group mb-3">
+						<label for="sifre">Şifreniz</label>
+						<input type="password" class="form-control" placeholder="Şifreniz" name="sifre" id="sifre">
+					</div>
+          <div class="form-group mb-3">
+						<label for="sifre">Tekrar Şifreniz</label>
+						<input type="password" class="form-control" placeholder="Tekrar Şifreniz" name="tsifre" id="sifre">
+					</div>
+					<div class="form-group mb-3 mt-4">
+						<button type="submit" class="btn btn-primary btn-block">Kayıt Ol</button>
+					</div>
+				</form>
+			</div>
+		</div>
+</div>
+{% include 'footer.html' %}

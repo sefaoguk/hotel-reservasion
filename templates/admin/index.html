@@ -1,0 +1,68 @@
+{% include 'admin/header.html' %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6 text-center">Odalar / Oda ekle</h1>
+  </div>
+</div>
+<div class="container p-3 text-center">
+  {% if 'oda' in request.args: %}
+    {% if request.args.get('oda') == 'basarili': %}
+    <div class="alert alert-success mb-30 mt-30">Oda başarıyla eklendi</div>
+    {% endif %}
+    {% if request.args.get('oda') == 'guncelleme': %}
+    <div class="alert alert-success mb-30 mt-30">Oda bilgisi güncellendi</div>
+    {% endif %}
+  {% endif %}
+  <form class="mt-4" action="/admin/odaekle" method="post">
+    <div class="row justify-content-center">
+     <div class="col-lg-6">
+       <div class="form-group mb-3">
+         <label for="input">Oda Adı</label>
+         <input class="form-control" type="text" name="oda_adi" id="input" required>
+       </div>
+     </div>
+     <div class="col-lg-6">
+       <div class="form-group mb-3">
+         <label for="input">Kişi Başı Fiyatı</label>
+         <input class="form-control" type="number" name="oda_fiyat" id="input" required>
+       </div>
+     </div>
+     <div class="col-lg-12">
+       <div class="form-group mb-3">
+         <label for="input">Açıklama</label>
+         <textarea name="oda_aciklama" rows="2" class="form-control"></textarea>
+       </div>
+     </div>
+     <div class="col-lg-12">
+       <div class="form-group mb-3">
+         <button type="submit" class="btn btn-primary btn-block">Oda Ekle</button>
+       </div>
+     </div>
+    </div>
+  </form>
+
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Oda Adı</th>
+        <th scope="col">Açıklama</th>
+        <th scope="col">Fiyatı</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for oda in odalar %}
+      <tr>
+        <th scope="row">{{oda.id}}</th>
+        <td>{{oda.baslik}}</td>
+        <td>{{oda.aciklama}}</td>
+        <td>{{oda.fiyat}} TL</td>
+        <td><a href="/admin/oda_sil/{{oda.id}}">Sil</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+{% include 'admin/footer.html' %}

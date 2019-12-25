@@ -1,0 +1,31 @@
+{% include 'admin/header.html' %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6 text-center">Bonuslar</h1>
+  </div>
+</div>
+<div class="container p-3 text-center">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Açıklama</th>
+        <th scope="col">Bonus</th>
+        <th scope="col">Kullanıcı</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bonus in bonuslar %}
+      <tr>
+        <th scope="row">{{bonus.id}}</th>
+        <td>{{bonus.aciklama}}</td>
+        <td>{{bonus.bonus}}</td>
+        <td>{{bonus.musteri}}</td>
+        <td><a href="/admin/bonus_sil/{{bonus.id}}">Sil</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include 'admin/footer.html' %}

@@ -1,0 +1,31 @@
+{% include 'header.html' %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6 text-center">{{current_user.name}}</h1>
+     <p class="lead text-center">
+       <a href="/profil" class="text-dark text-muted">Rezervasyonlarım</a> | <a href="/bonus" class="text-dark font-weight-bold">Bonuslarım</a>
+     </p>
+  </div>
+</div>
+<div class="container giris_kayit">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Açıklama</th>
+        <th scope="col">Bonus</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bonus in bonuslar %}
+      <tr>
+        <th scope="row">{{bonus.id}}</th>
+        <td>{{bonus.aciklama}}</td>
+        <td>{{bonus.bonus}} TL</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+{% include 'footer.html' %}

@@ -1,0 +1,45 @@
+{% include 'header.html' %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6 text-center">{{current_user.name}}</h1>
+     <p class="lead text-center">
+       <a href="/profil" class="text-dark font-weight-bold">Rezervasyonlarım</a> | <a href="/bonus" class="text-dark text-muted">Bonuslarım</a>
+     </p>
+  </div>
+</div>
+<div class="container giris_kayit">
+  {% if 'yetkisiz' in request.args: %}
+  <div class="alert alert-danger mb-30 mt-30">
+    Admin sayfasına giriş yapamazsınız, yeterli yetkiye sahip değilsiniz!
+  </div>
+  {% endif %}
+  {% if request.args.get('rezervasyon') == 'eklendi': %}
+  <div class="alert alert-success mb-30 mt-30">Rezervasyon başarıyla kayıt edildi</div>
+  {% endif %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Giriş Tarihi</th>
+        <th scope="col">Çıkış Tarihi</th>
+        <th scope="col">Kişi Sayısı</th>
+        <th scope="col">Süre</th>
+        <th scope="col">Oda / Fiyatı</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in rezervasyonlar %}
+      <tr>
+        <th scope="row">{{r.id}}</th>
+        <td>{{r.giris}}</td>
+        <td>{{r.cikis}}</td>
+        <td>{{r.kisi}}</td>
+        <td>{{r.kacgun}}</td>
+        <td>{{r.oda}} / {{r.fiyat}} TL</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+{% include 'footer.html' %}
